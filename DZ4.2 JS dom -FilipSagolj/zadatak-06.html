@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<htm>
+<head>
+    <title>Zbrajanje Dva Broja</title>
+    <style>
+        .forma-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .unos-container {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('zbrojiForma').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var prviBroj = parseFloat(document.getElementById('prviBroj').value) || 0;
+                var drugiBroj = parseFloat(document.getElementById('drugiBroj').value) || 0;
+                var rezultat = prviBroj + drugiBroj;
+
+                // Prikaz rezultata ispod gumba
+                var rezultatContainer = document.createElement('div');
+                rezultatContainer.innerHTML = `
+                    <div class="unos-container">
+                        <label for="rezultatZbrajanja">Rezultat: </label>
+                        <input type="text" id="rezultatZbrajanja" name="rezultatZbrajanja" value="${rezultat}" readonly>
+                    </div>
+                `;
+
+                // Dodavanje rezultata ispod gumba
+                document.getElementById('zbrojiForma').appendChild(rezultatContainer);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Zbrajanje Dva Broja</h1>
+    <form id="zbrojiForma" class="forma-container">
+        <div class="unos-container">
+            <label for="prviBroj">X unos: </label>
+            <input type="number" id="prviBroj" name="prviBroj" required>
+        </div>
+        <div class="unos-container">
+            <label for="drugiBroj">Y unos: </label>
+            <input type="number" id="drugiBroj" name="drugiBroj" required>
+        </div>
+        <button type="submit">Zbroji</button>
+    </form>
+</body>
+</html>

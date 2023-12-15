@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promjena Pozadine</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function dobaviNasumicnuBoju() {
+                var slova = '0123456789ABCDEF';
+                var boja = '#';
+                for (var i = 0; i < 6; i++) {
+                    boja += slova[Math.floor(Math.random() * 16)];
+                }
+                return boja;
+            }
+
+            function promijeniPozadinu() {
+                var tijeloDokumenta = document.body;
+                var novaBoja = 'lightblue';
+
+                tijeloDokumenta.style.backgroundColor = novaBoja;
+                document.getElementById('trenutnaBoja').innerHTML = 'Trenutna boja: ' + novaBoja;
+            }
+
+            document.getElementById('promijeniPozadinuGumb').addEventListener('click', promijeniPozadinu);
+        });
+    </script>
+</head>
+<body>
+    <h1>Promjena Pozadine</h1>
+    <button id="promijeniPozadinuGumb">Promijeni pozadinu</button>
+    <div id="trenutnaBoja"></div>
+</body>
+</html>

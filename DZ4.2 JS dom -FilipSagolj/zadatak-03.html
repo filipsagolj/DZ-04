@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unos Ocjena</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('unesiOcjenu').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var unesenaOcjena = document.getElementById('ocjenaPolje').value;
+                var ispisOcjene;
+
+                switch (unesenaOcjena) {
+                    case '1':
+                        ispisOcjene = 'Nedovoljan (1)';
+                        break;
+                    case '2':
+                        ispisOcjene = 'Dovoljan (2)';
+                        break;
+                    case '3':
+                        ispisOcjene = 'Dobar (3)';
+                        break;
+                    case '4':
+                        ispisOcjene = 'Vrlo dobar (4)';
+                        break;
+                    case '5':
+                        ispisOcjene = 'Odličan (5)';
+                        break;
+                    default:
+                        ispisOcjene = 'Unijeli ste nevazecu ocjenu!';
+                }
+
+                alert('Ocjena: ' + ispisOcjene);
+            });
+        });
+    </script>
+</head>
+<body>
+	<hr>
+    <h1>Unos ocjena:</h1></h1></h1>
+    <form id="unesiOcjenu">
+        <label for="ocjenaPolje">Unesi ocjenu (od 1 do 5): </label>
+        <input type="text" id="ocjenaPolje" name="ocjena" pattern="[1-5]" required>
+        <button type="submit">Potvrdi</button>
+    </form>
+	<hr>
+</body>
+</html>

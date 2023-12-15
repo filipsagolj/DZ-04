@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validacija BiH Registarske Oznake</title>
+    <script>
+        function validirajRegistarskuOznaku(oznaka) {
+            var regex = /^[A-Z0-9]\d{2}-[A-Z]-\d{3}$/;
+
+            return regex.test(oznaka);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('validacijaRegistracije').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var unesenaOznaka = document.getElementById('registarskaOznaka').value;
+                var ispravnaOznaka = validirajRegistarskuOznaku(unesenaOznaka);
+
+                if (ispravnaOznaka) {
+                    alert('Ispravna registarska oznaka.');
+                } else {
+                    alert('Neispravna registarska oznaka. Format mora biti A12-A-321.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+	<hr>
+    <h1>Validacija vase registarske oznake</h1>
+    <form id="validacijaRegistracije">
+        <label for="registarskaOznaka">Unesi registarsku oznaku (npr. A12-A-321): </label>
+        <input type="text" id="registarskaOznaka" name="registarskaOznaka" required>
+        <button type="submit">Validiraj</button>
+    </form>
+	<hr>
+</body>
+</html>

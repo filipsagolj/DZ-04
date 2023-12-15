@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Izračun godina</title>
+    <script>
+        function izracunajGodine() {
+            var dan = document.getElementById('dan').value;
+            var mjesec = document.getElementById('mjesec').value;
+            var godina = document.getElementById('godina').value;
+
+            var uneseniDatum = new Date(`${godina}-${mjesec}-${dan}`);
+            var trenutniDatum = new Date();
+            var godine = trenutniDatum.getFullYear() - uneseniDatum.getFullYear();
+
+            if (trenutniDatum.getMonth() < uneseniDatum.getMonth() || 
+                (trenutniDatum.getMonth() === uneseniDatum.getMonth() && trenutniDatum.getDate() < uneseniDatum.getDate())) {
+                godine--;
+            }
+
+            alert('Imate ' + godine + ' godina.');
+        }
+    </script>
+</head>
+<body>
+    <h1>Izračun godina</h1>
+    <form>
+        <div>
+            <label for="dan">Unesite dan rođenja: </label>
+            <input type="text" id="dan" name="dan" placeholder="npr. 01" required>
+        </div>
+        <div>
+            <label for="mjesec">Unesite mjesec rođenja: </label>
+            <input type="text" id="mjesec" name="mjesec" placeholder="npr. 01" required>
+        </div>
+        <div>
+            <label for="godina">Unesite godinu rođenja: </label>
+            <input type="text" id="godina" name="godina" placeholder="npr. 1970" required>
+        </div>
+        <button type="button" onclick="izracunajGodine()">Izračunaj</button>
+    </form>
+</body>
+</html>

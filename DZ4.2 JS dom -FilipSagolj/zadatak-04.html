@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IspisOcjenaUnutarHtmlPreglednika</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('unesiOcjenu').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var unesenaOcjena = document.getElementById('ocjenaPolje').value;
+                var ocjenaTekst;
+
+                switch (unesenaOcjena) {
+                    case '1':
+                        ocjenaTekst = 'nedovoljan (1)';
+                        break;
+                    case '2':
+                        ocjenaTekst = 'dovoljan (2)';
+                        break;
+                    case '3':
+                        ocjenaTekst = 'dobar (3)';
+                        break;
+                    case '4':
+                        ocjenaTekst = 'vrlo dobar (4)';
+                        break;
+                    case '5':
+                        ocjenaTekst = 'odličan (5)';
+                        break;
+                    default:
+                        ocjenaTekst = 'Unijeli ste nevazeu ocjenu!';
+                }
+
+                document.getElementById('ispisOcjene').innerHTML = 'Ocjena: ' + ocjenaTekst;
+            });
+        });
+    </script>
+</head>
+<body>
+	<hr>
+    <h1>Unos Ocjena:</h1></h1>
+    <form id="unesiOcjenu">
+        <label for="ocjenaPolje">Unesi ocjenu (od 1 do 5): </label>
+        <input type="text" id="ocjenaPolje" name="ocjena" pattern="[1-5]" required>
+        <button type="submit">Potvrdi unos</button>
+    </form>
+    <p id="ispisOcjene"></p>
+	<hr>
+</body>
+</html>
